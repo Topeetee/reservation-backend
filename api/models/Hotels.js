@@ -1,5 +1,5 @@
 const mongoose  = require("mongoose");
-const {schema} = mongoose;
+const Schema = mongoose;
 
 const HotelSchema = new mongoose.Schema({
     name:{

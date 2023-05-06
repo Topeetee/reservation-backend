@@ -1,3 +1,4 @@
+const Hotel = require("../models/Hotels");
 const createHotel = async (req,res,next)=>{
 
     const newHotel = new Hotel(req.body)

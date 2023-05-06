@@ -26,6 +26,8 @@ app.use("/api/hotels",HotelsRoute);
 app.use("/api/rooms",RoomsRoute);
 app.use("/api/users",UsersRoute); 
 
+
+app.get("/", (req,res)=>res.send("working"))
 app.use((err,res,next)=>{
     const errorStatus = err.status || 500
     const errorMessage = err.message || "somethine ent wrong"
@@ -36,6 +38,5 @@ app.use((err,res,next)=>{
         stack: err.stack
       })
 })
-app.get("/", (req,res)=>res.send("working"))
 app.listen(3000, ()=>{ connect() 
     console.log("connected to the port")});
