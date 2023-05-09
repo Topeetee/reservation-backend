@@ -5,9 +5,10 @@ const AuthRoute = require("./api/routes/auth");
 const RoomsRoute = require("./api/routes/rooms");
 const HotelsRoute = require("./api/routes/hotels");
 const UsersRoute = require("./api/routes/users");
+const cookieParser = require("cookie-parser");
  
 const app = express();
-app.use(express.json());
+
 const connect = async()=>{
     try{
         await mongoose.connect(process.env.ATLAS_URI);
@@ -19,8 +20,12 @@ const connect = async()=>{
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
-  console.log("Connected successfully");
+    console.log("Connected successfully");
 });
+
+
+app.use( cookieParser());
+app.use(express.json());
 app.use("/api/auth",AuthRoute);
 app.use("/api/hotels",HotelsRoute);
 app.use("/api/rooms",RoomsRoute);
