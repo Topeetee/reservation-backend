@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const {createError} =  require("../utils/verifyToken")
+const {createError} =  require("../utils/error.js")
 
 const verifyToken =  (req,res,next)=>{
     const token = req.cookies.access_token;
@@ -10,6 +10,7 @@ const verifyToken =  (req,res,next)=>{
     jwt.verify(token,process.env.JWT,(err,user)=>{
         if(err) return next(createError(403,"token is not valid"));
         req.user = user;
-        next()
+        next() 
     })
 }
+module.exports = verifyToken;

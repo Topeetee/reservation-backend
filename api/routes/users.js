@@ -1,9 +1,10 @@
 const express = require("express");
 const { updateUser, deleteUser, getUser, getUsers } = require("../controller/user");
+const verifyToken = require("../utils/verifyToken");
 
 const router = express.Router();
 
-router.get("/checkauthentication",verifytoken, (req,res,next)=>{
+router.get("/checkauthentication",verifyToken, (req,res,next)=>{
     res.send("hello user u sre authenticated")
 })
 //update
