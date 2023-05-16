@@ -3,7 +3,7 @@ const User = require("../models/User")
 const updateUser = async (req,res,next)=>{
 
     try {
-        const savedHotel = await Hotel.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true})
+        const savedHotel = await User.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true})
         res.status(200).json(savedHotel)
     }catch (err) {
         next(err)
