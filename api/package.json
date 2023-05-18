@@ -1,14 +1,4 @@
 {
-  "name": "reservation-backend",
-  "version": "1.0.0",
-  "description": "backend for my hotel reservations",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
-  "author": "topeetee",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
