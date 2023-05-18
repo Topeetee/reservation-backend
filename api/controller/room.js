@@ -14,7 +14,7 @@ const createRoom = async (req, res, next) => {
         } catch (err) {
             next(err)
         }
-        res.status(200).json("hotel created")
+        res.status(200).json(savedRoom)
     } catch (err) {
         next(err)
     }
@@ -30,10 +30,20 @@ try {
 
 }
 
+// const deleteRoom = async (req,res,next)=>{
+
+//     try {
+//         const savedRoom = await Room.findByIdAndDelete(req.params.id)
+//         res.status(200).json("hotel deleted")
+//     }  catch (err) {
+//         next(err)
+//     }
+
+// }
 const deleteRoom = async (req, res, next) => {
     const hotelId = req.params.hotelid;
     try {
-        const savedRoom = await HotelRoom.findByIdAndDelete(req.params.id)
+        const savedRoom = await Room.findByIdAndDelete(req.params.id)
         try {
             await Hotel.findByIdAndUpdate(hotelId, {
                 $pull: { rooms: req.params.id }

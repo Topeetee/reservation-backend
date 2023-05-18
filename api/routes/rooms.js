@@ -1,5 +1,6 @@
 const express = require("express");
 const{verifyAdmin} = require("../utils/verifyToken")
+const { createError } = require("../utils/error")
 const { createRoom, updateHotelRoom, deleteRoom, getRoom, getRooms } = require("../controller/room");
 
 const router = express.Router();

@@ -1,10 +1,10 @@
 const express = require("express");
 require('dotenv').config(); 
 const mongoose = require ("mongoose");
-const AuthRoute = require("./api/routes/auth");
-const RoomsRoute = require("./api/routes/rooms");
-const HotelsRoute = require("./api/routes/hotels");
-const UsersRoute = require("./api/routes/users");
+const AuthRoute = require("./routes/auth");
+const RoomsRoute = require("./routes/rooms");
+const HotelsRoute = require("./routes/hotels");
+const UsersRoute = require("./routes/users");
 const cookieParser = require("cookie-parser");
  
 const app = express();
@@ -35,7 +35,7 @@ app.use("/api/users",UsersRoute);
 app.get("/", (req,res)=>res.send("working"))
 app.use((err,res,next)=>{
     const errorStatus = err.status || 500
-    const errorMessage = err.message || "somethine ent wrong"
+    const errorMessage = err.message || "somethine went wrong"
     return res.status(errorStatus).json({
         success:false,
         status:errorStatus,
