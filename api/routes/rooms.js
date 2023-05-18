@@ -8,7 +8,7 @@ router.post("/:hotelid", verifyAdmin, createRoom)
 //update
 router.put("/:id", verifyAdmin,updateHotelRoom)
 //delete
-router.delete("/:id",verifyAdmin,deleteRoom)
+router.delete("/:id/:hotelid ",verifyAdmin,deleteRoom)
 //get specific hotel
 router.get("/:id", getRoom)
 
