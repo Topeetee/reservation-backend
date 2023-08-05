@@ -37,7 +37,8 @@ app.use((err,res,next)=>{
     const errorStatus = err.status || 500
     const errorMessage = err.message || "somethine went wrong"
     return res.status(errorStatus).json({
-        success:false,
+        success:false,  
+        
         status:errorStatus,
         messgae: errorMessage,
         stack: err.stack
